@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrowTiedFollowPopupWindow showPopup(View view, ArrowTiedPopupWindow.TiedDirection direction, float position, int xoffset, int yoffset) {
         ArrowTiedFollowPopupWindow popupWindow = new ArrowTiedFollowPopupWindow(MainActivity.this);
         popupWindow.setBackground(R.color.transparent_70, 5, 20, 10);
-        popupWindow.setArrow(R.color.transparent_70, position, ArrowPopupWindow.ArrowSize.SMALL);
+        popupWindow.setArrow(android.R.color.holo_red_light, position, ArrowPopupWindow.ArrowSize.SMALL);
         popupWindow.setText("hello world\nvery nice\ngood", R.color.white, 12);
         popupWindow.setTiedView(view, direction);
         popupWindow.setOffset(xoffset, yoffset);
