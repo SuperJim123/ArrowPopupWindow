@@ -1,12 +1,13 @@
-package cn.wecoder.arrowedpopupwindow.widgets.popupwindow;
+package cn.wecoder.arrowpopupwindow.library.widgets.popupwindow;
 
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 
-import cn.wecoder.arrowedpopupwindow.R;
-import cn.wecoder.arrowedpopupwindow.utils.Util;
+import cn.wecoder.arrowpopupwindow.library.R;
+import cn.wecoder.arrowpopupwindow.library.utils.Util;
+
 
 /**
  *  Create a arrowed popup window, it can be tied to a view.

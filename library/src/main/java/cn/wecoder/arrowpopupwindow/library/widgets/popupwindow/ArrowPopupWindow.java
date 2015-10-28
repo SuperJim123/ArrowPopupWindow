@@ -1,4 +1,4 @@
-package cn.wecoder.arrowedpopupwindow.widgets.popupwindow;
+package cn.wecoder.arrowpopupwindow.library.widgets.popupwindow;
 
 
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import cn.wecoder.arrowedpopupwindow.R;
-import cn.wecoder.arrowedpopupwindow.utils.Util;
-import cn.wecoder.arrowedpopupwindow.widgets.drawable.RoundRectDrawable;
-import cn.wecoder.arrowedpopupwindow.widgets.drawable.TintedBitmapDrawable;
+import cn.wecoder.arrowpopupwindow.library.R;
+import cn.wecoder.arrowpopupwindow.library.utils.Util;
+import cn.wecoder.arrowpopupwindow.library.widgets.drawable.RoundRectDrawable;
+import cn.wecoder.arrowpopupwindow.library.widgets.drawable.TintedBitmapDrawable;
 
 /**
  * Create a arrowed popup window.
@@ -174,7 +174,7 @@ public class ArrowPopupWindow extends PopupWindow {
                 break;
         }
 
-        int arrowRes = R.mipmap.bubble_arrow_light;
+        int arrowRes = R.drawable.bubble_arrow_light;
         Bitmap source = BitmapFactory.decodeResource(mContext.getResources(), arrowRes);
         Bitmap rotateBitmap = Util.rotateBitmap(source, r);
 

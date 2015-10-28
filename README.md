@@ -1,4 +1,4 @@
-# ArrowedPopupWindow
+# arrowpopupwindow
 It's easy to create a arrowed popup window and tie it to another view. Once the tied view moves, this arrowed popup window will move too.
 
 # How to use
@@ -16,4 +16,4 @@ It's easy to create a arrowed popup window and tie it to another view. Once the 
 
 # Snapshot
 
- ![image](https://github.com/SuperJim123/ArrowedPopupWindow/raw/master/snapshot.jpg)
+ ![image](https://github.com/SuperJim123/arrowpopupwindow/raw/master/snapshot.jpg)

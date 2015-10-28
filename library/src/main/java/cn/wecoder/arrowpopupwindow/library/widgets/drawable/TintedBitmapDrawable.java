@@ -1,4 +1,4 @@
-package cn.wecoder.arrowedpopupwindow.widgets.drawable;
+package cn.wecoder.arrowpopupwindow.library.widgets.drawable;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;

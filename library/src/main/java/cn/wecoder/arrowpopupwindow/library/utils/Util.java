@@ -1,4 +1,4 @@
-package cn.wecoder.arrowedpopupwindow.utils;
+package cn.wecoder.arrowpopupwindow.library.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;

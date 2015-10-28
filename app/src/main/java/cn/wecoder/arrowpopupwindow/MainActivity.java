@@ -1,15 +1,13 @@
-package cn.wecoder.arrowedpopupwindow;
+package cn.wecoder.arrowpopupwindow;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import cn.wecoder.arrowedpopupwindow.widgets.popupwindow.ArrowPopupWindow;
-import cn.wecoder.arrowedpopupwindow.widgets.popupwindow.ArrowTiedFollowPopupWindow;
-import cn.wecoder.arrowedpopupwindow.widgets.popupwindow.ArrowTiedPopupWindow;
+import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowPopupWindow;
+import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowTiedFollowPopupWindow;
+import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowTiedPopupWindow;
 
 public class MainActivity extends AppCompatActivity {
 
