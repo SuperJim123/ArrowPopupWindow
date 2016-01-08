@@ -40,18 +40,17 @@ public class ArrowPopupWindow extends PopupWindow {
     }
 
     private Context mContext;
+    private View mContentView;
     private int mBackgroundColor;
     private float mRadius;
     private ArrowDirection mArrowDirection = ArrowDirection.BOTTOM;
     private int mArrowColor;
     private float mArrowPosition;
-    private String mText;
-    private int mTextColor;
-    private int mTextSize;
     private int xPadding;
     private int yPadding;
     private ArrowSize mArrowSize = ArrowSize.NORMAL;
     private RelativeLayout container;
+    private RelativeLayout mViewContainer;
     private int arrowPointOffset;
     private int mViewWidth, mViewHeight;
 
@@ -108,47 +107,37 @@ public class ArrowPopupWindow extends PopupWindow {
     }
 
     /**
-     * Set the text parameters to this popup window.
-     * @param text the content of this text
-     * @param textColorRes the resource of this text's color.
-     * @param textSize the text size(sp)
+     * set the content view to this popup window
+     * @param view the content view
      */
-    public void setText(String text, int textColorRes, int textSize) {
-        mText = text;
-        mTextColor = mContext.getResources().getColor(textColorRes);
-        mTextSize = textSize;
+    public void setPopupView(View view) {
+        mContentView = view;
     }
 
     /**
      * You must user this method before you show this popup window.
      */
     public void preShow() {
-        TextView tvContent = new TextView(mContext);
-        tvContent.setTextColor(mTextColor);
-        tvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
-        tvContent.setText(mText);
-
-        int xPaddingPx = Util.DpToPx(mContext, xPadding);
-        int yPaddingPx = Util.DpToPx(mContext, yPadding);
-        tvContent.setPadding(xPaddingPx, yPaddingPx, xPaddingPx, yPaddingPx);
-
-        RelativeLayout textContainer = new RelativeLayout(mContext);
-        textContainer.setId(R.id.popup_text_container);
+        mViewContainer = new RelativeLayout(mContext);
+        mViewContainer.setId(R.id.popup_text_container);
         RelativeLayout.LayoutParams textContainerParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         RoundRectDrawable roundRectDrawable = new RoundRectDrawable(mBackgroundColor, mRadius);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-            textContainer.setBackgroundDrawable(roundRectDrawable);
+            mViewContainer.setBackgroundDrawable(roundRectDrawable);
         } else {
-            textContainer.setBackground(roundRectDrawable);
+            mViewContainer.setBackground(roundRectDrawable);
         }
-        textContainer.addView(tvContent);
+        int xPaddingPx = Util.DpToPx(mContext, xPadding);
+        int yPaddingPx = Util.DpToPx(mContext, yPadding);
+        mViewContainer.setPadding(xPaddingPx, yPaddingPx, xPaddingPx, yPaddingPx);
+        mViewContainer.addView(mContentView);
 
         int ms = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-        textContainer.setLayoutParams(textContainerParams);
-        textContainer.measure(ms, ms);
+        mViewContainer.setLayoutParams(textContainerParams);
+        mViewContainer.measure(ms, ms);
 
-        int textContainerWidth = textContainer.getMeasuredWidth();
-        int textContainerHeight = textContainer.getMeasuredHeight();
+        int viewContainerWidth = mViewContainer.getMeasuredWidth();
+        int viewContainerHeight = mViewContainer.getMeasuredHeight();
 
         ImageView arrowImage = new ImageView(mContext);
         arrowImage.setId(R.id.popup_arraw);
@@ -186,7 +175,7 @@ public class ArrowPopupWindow extends PopupWindow {
         switch (mArrowDirection) {
             case TOP:
             case BOTTOM:
-                int width = textContainerWidth/3;
+                int width = viewContainerWidth/3;
                 if(arrowSizePx > width) {
                     arrowSizePx = width;
                 }
@@ -194,7 +183,7 @@ public class ArrowPopupWindow extends PopupWindow {
                 break;
             case LEFT:
             case RIGHT:
-                int height = textContainerHeight/3;
+                int height = viewContainerHeight/3;
                 if(arrowSizePx > height) {
                     arrowSizePx = height;
                 }
@@ -209,24 +198,24 @@ public class ArrowPopupWindow extends PopupWindow {
         switch (mArrowDirection) {
             case TOP:
             case BOTTOM:
-                int marginLeft = (int) (textContainerWidth * mArrowPosition) - (scaleBitmap.getWidth() / 2);
+                int marginLeft = (int) (viewContainerWidth * mArrowPosition) - (scaleBitmap.getWidth() / 2);
                 if(marginLeft < mRadius) {
                     marginLeft = (int)mRadius;
                 }
-                if(marginLeft > (textContainerWidth - mRadius - scaleBitmap.getWidth())) {
-                    marginLeft = textContainerWidth - (int)mRadius - scaleBitmap.getWidth();
+                if(marginLeft > (viewContainerWidth - mRadius - scaleBitmap.getWidth())) {
+                    marginLeft = viewContainerWidth - (int)mRadius - scaleBitmap.getWidth();
                 }
                 arrowPointOffset = marginLeft + (scaleBitmap.getWidth() / 2);
                 arrowParams.setMargins(marginLeft, 0, 0, 0);
                 break;
             case LEFT:
             case RIGHT:
-                int marginTop = (int) (textContainerHeight * mArrowPosition) - (scaleBitmap.getHeight() / 2);
+                int marginTop = (int) (viewContainerHeight * mArrowPosition) - (scaleBitmap.getHeight() / 2);
                 if(marginTop < mRadius) {
                     marginTop = (int)mRadius;
                 }
-                if(marginTop > (textContainerHeight - mRadius - scaleBitmap.getHeight())) {
-                    marginTop = textContainerHeight - (int)mRadius - scaleBitmap.getHeight();
+                if(marginTop > (viewContainerHeight - mRadius - scaleBitmap.getHeight())) {
+                    marginTop = viewContainerHeight - (int)mRadius - scaleBitmap.getHeight();
                 }
                 arrowPointOffset = marginTop + (scaleBitmap.getHeight() / 2);
                 arrowParams.setMargins(0, marginTop, 0, 0);
@@ -236,7 +225,7 @@ public class ArrowPopupWindow extends PopupWindow {
         container = new RelativeLayout(mContext);
         container.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
         container.addView(arrowImage, arrowParams);
-        container.addView(textContainer, textContainerParams);
+        container.addView(mViewContainer, textContainerParams);
 
         setBackgroundDrawable(new BitmapDrawable());
         setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
@@ -261,5 +250,13 @@ public class ArrowPopupWindow extends PopupWindow {
 
     protected int getArrowPointOffset() {
         return arrowPointOffset;
+    }
+
+    @Override
+    public void dismiss() {
+        if(mViewContainer != null) {
+            mViewContainer.removeAllViews();
+        }
+        super.dismiss();
     }
 }

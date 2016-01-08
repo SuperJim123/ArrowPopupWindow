@@ -109,9 +109,7 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
             isShownSuccess = true;
         } else {
             isShownSuccess = false;
-            if(isShowing()) {
-                dismiss();
-            }
+            dismiss();
         }
     }
 
