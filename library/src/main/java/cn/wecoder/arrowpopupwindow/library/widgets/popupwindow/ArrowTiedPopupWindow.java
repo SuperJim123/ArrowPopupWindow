@@ -42,9 +42,6 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
      */
     public void setTiedView(View view, TiedDirection direction) {
         mTiedView = view;
-        tiedViewWidth = mTiedView.getMeasuredWidth();
-        tiedViewHeight = mTiedView.getMeasuredHeight();
-
         mTiedDirection = direction;
         ArrowDirection mArrowDirection = ArrowDirection.BOTTOM;
         switch (direction){
@@ -103,6 +100,8 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
         if(isShowing()){
             return;
         }
+        tiedViewWidth = mTiedView.getMeasuredWidth();
+        tiedViewHeight = mTiedView.getMeasuredHeight();
         getPosition();
         if (checkShowable() && mTiedView.isShown()) {
             setAnimationStyle(R.style.cardPopupAnimation);

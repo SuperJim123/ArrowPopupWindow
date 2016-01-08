@@ -10,14 +10,10 @@ import android.view.ViewTreeObserver;
  * Once the tied view moves, it will move.
  */
 public class ArrowTiedFollowPopupWindow extends ArrowTiedPopupWindow  implements ViewTreeObserver.OnScrollChangedListener, ViewTreeObserver.OnGlobalLayoutListener{
-
-    private Context mContext;
     private View mTiedView;
 
     public ArrowTiedFollowPopupWindow(Context context) {
         super(context);
-        mContext = context;
-
     }
 
     /**
@@ -39,18 +35,19 @@ public class ArrowTiedFollowPopupWindow extends ArrowTiedPopupWindow  implements
     public void onScrollChanged() {
         boolean result = updatePosition();
         if(!result) {
-            removeListenerAndDismiss();
+            dismiss();
         }
     }
 
     @Override
     public void onGlobalLayout() {
         if (!mTiedView.isShown()) {
-            removeListenerAndDismiss();
+            dismiss();
         }
     }
 
-    private void removeListenerAndDismiss(){
+    @Override
+    public void dismiss() {
         if(mTiedView != null) {
             ViewTreeObserver vto = mTiedView.getViewTreeObserver();
             vto.removeOnScrollChangedListener(this);
@@ -60,8 +57,6 @@ public class ArrowTiedFollowPopupWindow extends ArrowTiedPopupWindow  implements
                 vto.removeOnGlobalLayoutListener(this);
             }
         }
-        if(isShowing()){
-            dismiss();
-        }
+        super.dismiss();
     }
 }

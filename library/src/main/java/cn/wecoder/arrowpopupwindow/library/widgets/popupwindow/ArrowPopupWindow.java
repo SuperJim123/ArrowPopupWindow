@@ -31,7 +31,7 @@ public class ArrowPopupWindow extends PopupWindow {
     public enum ArrowSize {
         SMALLER(10), SMALL(15), NORMAL(20), BIG(25), BIGGER(30);
         private final int value;
-        private ArrowSize(int value) {
+        ArrowSize(int value) {
             this.value = value;
         }
         public int getValue() {
