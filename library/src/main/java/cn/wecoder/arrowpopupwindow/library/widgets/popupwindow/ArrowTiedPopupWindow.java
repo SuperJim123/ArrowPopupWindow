@@ -18,7 +18,6 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
     }
     private View mTiedView;
     private int tiedViewWidth, tiedViewHeight;
-    private int viewHeight, viewWidth;
     private int mScreenW, mScreenH;
     private int xOffset, yOffset;
     private int posX, posY;
@@ -89,8 +88,6 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
     @Override
     public void preShow() {
         super.preShow();
-        viewHeight = super.getViewHeight();
-        viewWidth = super.getViewWidth();
     }
 
     /**
@@ -124,19 +121,18 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
     protected void getPosition() {
         int[] tiedViewLocation = new int[2];
         mTiedView.getLocationOnScreen(tiedViewLocation);
-        int arrowPointOffset = super.getArrowPointOffset();
 
         switch (mTiedDirection) {
             case TOP:
                 posX = tiedViewLocation[0] + tiedViewWidth/2 - arrowPointOffset + xOffset;
-                posY = tiedViewLocation[1] - viewHeight + yOffset;
+                posY = tiedViewLocation[1] - mViewHeight + yOffset;
                 break;
             case BOTTOM:
                 posX = tiedViewLocation[0] + tiedViewWidth/2 - arrowPointOffset + xOffset;
                 posY = tiedViewLocation[1] + tiedViewHeight + yOffset;
                 break;
             case LEFT:
-                posX = tiedViewLocation[0] - viewWidth + xOffset;
+                posX = tiedViewLocation[0] - mViewWidth + xOffset;
                 posY = tiedViewLocation[1] + tiedViewHeight/2 - arrowPointOffset + yOffset;
                 break;
             case RIGHT:
@@ -153,7 +149,7 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
     protected boolean updatePosition() {
         getPosition();
         if (checkShowable() && mTiedView.isShown()) {
-            update(posX, posY, viewWidth, viewHeight);
+            update(posX, posY, mViewWidth, mViewHeight);
             return true;
         } else {
             return false;
@@ -161,10 +157,10 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
     }
 
     protected boolean checkShowable() {
-        if(posY + viewHeight > mScreenH - edgeBottom || posY < edgeTop){
+        if(posY + mViewHeight > mScreenH - edgeBottom || posY < edgeTop){
             return false;
         }
-        if(posX < edgeLeft || posX + viewWidth > mScreenW - edgeRight) {
+        if(posX < edgeLeft || posX + mViewWidth > mScreenW - edgeRight) {
             return false;
         }
         return true;

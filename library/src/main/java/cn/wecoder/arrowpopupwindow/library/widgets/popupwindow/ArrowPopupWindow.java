@@ -4,6 +4,7 @@ package cn.wecoder.arrowpopupwindow.library.widgets.popupwindow;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.TypedValue;
@@ -48,11 +49,13 @@ public class ArrowPopupWindow extends PopupWindow {
     private float mArrowPosition;
     private int xPadding;
     private int yPadding;
+    private int mEdgeLineColor;
+    private int mEdgeLineWidth;
     private ArrowSize mArrowSize = ArrowSize.NORMAL;
     private RelativeLayout container;
     private RelativeLayout mViewContainer;
-    private int arrowPointOffset;
-    private int mViewWidth, mViewHeight;
+    protected int arrowPointOffset;
+    protected int mViewWidth, mViewHeight;
 
     public ArrowPopupWindow(Context context) {
         mContext = context;
@@ -112,6 +115,11 @@ public class ArrowPopupWindow extends PopupWindow {
      */
     public void setPopupView(View view) {
         mContentView = view;
+    }
+
+    public void setEdgeLine(int colorRes, int width) {
+        mEdgeLineColor = mContext.getResources().getColor(colorRes);
+        mEdgeLineWidth = Util.DpToPx(mContext, width);
     }
 
     /**
@@ -238,18 +246,17 @@ public class ArrowPopupWindow extends PopupWindow {
 
         mViewWidth = container.getMeasuredWidth();
         mViewHeight = container.getMeasuredHeight();
-    }
 
-    protected int getViewHeight() {
-        return mViewHeight;
-    }
+        if(mEdgeLineColor != 0) {
+            Bitmap viewBitmap = Util.convertViewToBitmap(container);
+            Bitmap edgeLineBitmap = Util.getEdgeLineBitmap(mContext, viewBitmap, mEdgeLineColor, mEdgeLineWidth);
+            BitmapDrawable edgeLineDrawable = new BitmapDrawable(edgeLineBitmap);
+            container.setPadding(mEdgeLineWidth, mEdgeLineWidth, mEdgeLineWidth, mEdgeLineWidth);
+            container.setBackgroundDrawable(edgeLineDrawable);
 
-    protected int getViewWidth() {
-        return mViewWidth;
-    }
-
-    protected int getArrowPointOffset() {
-        return arrowPointOffset;
+            mViewWidth = container.getMeasuredWidth() + 2 * mEdgeLineWidth;
+            mViewHeight = container.getMeasuredHeight() + 2 * mEdgeLineWidth;
+        }
     }
 
     @Override

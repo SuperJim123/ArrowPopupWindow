@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mLeftButton, ArrowTiedPopupWindow.TiedDirection.LEFT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mRightButton, ArrowTiedPopupWindow.TiedDirection.RIGHT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mTopButton, ArrowTiedPopupWindow.TiedDirection.TOP);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mBottomButton, ArrowTiedPopupWindow.TiedDirection.BOTTOM);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mPositionButton, ArrowTiedPopupWindow.TiedDirection.RIGHT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(android.R.color.holo_red_light, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.white, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mOffsetButton, ArrowTiedPopupWindow.TiedDirection.LEFT);
                 mPopupWindow.setOffset(-10, -10);
                 mPopupWindow.preShow();
@@ -122,15 +122,16 @@ public class MainActivity extends AppCompatActivity {
         mPositionButton = (Button) findViewById(R.id.position);
         mTextView = new TextView(this);
         mTextView.setText("hello world\nvery nice\ngood");
-        mTextView.setTextColor(getResources().getColor(R.color.white));
+        mTextView.setTextColor(getResources().getColor(R.color.gray));
         mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
     }
 
     private void initPopupWindow() {
         mPopupWindow = new ArrowTiedFollowPopupWindow(MainActivity.this);
-        mPopupWindow.setBackground(R.color.transparent_70, 5, 20, 10);
+        mPopupWindow.setBackground(R.color.white, 5, 20, 10);
         mPopupWindow.setPopupView(mTextView);
         mPopupWindow.setEdge(80,0,10,0);
+        mPopupWindow.setEdgeLine(R.color.edge, 1);
         mPopupWindow.setAnimationStyle(R.style.cardPopupAnimation);
     }
 
