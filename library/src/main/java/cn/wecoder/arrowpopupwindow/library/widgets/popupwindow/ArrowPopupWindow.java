@@ -117,6 +117,11 @@ public class ArrowPopupWindow extends PopupWindow {
         mContentView = view;
     }
 
+    /**
+     * set the edge line
+     * @param colorRes the resource of this line's color
+     * @param width the width of this line's color
+     */
     public void setEdgeLine(int colorRes, int width) {
         mEdgeLineColor = mContext.getResources().getColor(colorRes);
         mEdgeLineWidth = Util.DpToPx(mContext, width);
