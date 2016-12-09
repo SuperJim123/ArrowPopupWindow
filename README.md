@@ -2,7 +2,7 @@
 It's easy to create a arrowed popup window and tie it to another view. Once the tied view moves, this arrowed popup window will move too.
 
 # How to use
-```java
+```
 ArrowTiedFollowPopupWindow popupWindow = new ArrowTiedFollowPopupWindow(MainActivity.this);
 popupWindow.setBackground(R.color.transparent_70, 5, 20, 10);  //Set the background color, radius and padding.
 popupWindow.setArrow(R.color.transparent_70, position, ArrowPopupWindow.ArrowSize.SMALL);  //Set the arrow color, relative posotion and size.
