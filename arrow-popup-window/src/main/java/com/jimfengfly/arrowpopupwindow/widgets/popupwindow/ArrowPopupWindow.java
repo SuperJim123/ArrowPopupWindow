@@ -12,11 +12,10 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
+import com.jimfengfly.arrowpopupwindow.R;
 import com.jimfengfly.arrowpopupwindow.utils.Util;
 import com.jimfengfly.arrowpopupwindow.widgets.drawable.RoundRectDrawable;
 import com.jimfengfly.arrowpopupwindow.widgets.drawable.TintedBitmapDrawable;
-
-import cn.wecoder.arrowpopupwindow.library.R;
 
 /**
  * Create a arrowed popup window.
