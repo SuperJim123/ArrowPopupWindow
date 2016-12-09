@@ -1,4 +1,4 @@
-package cn.wecoder.arrowpopupwindow;
+package com.jimfengfly.arrowpopupwindowdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowPopupWindow;
-import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowTiedFollowPopupWindow;
-import cn.wecoder.arrowpopupwindow.library.widgets.popupwindow.ArrowTiedPopupWindow;
+import com.jimfengfly.arrowpopupwindow.widgets.popupwindow.ArrowPopupWindow;
+import com.jimfengfly.arrowpopupwindow.widgets.popupwindow.ArrowTiedFollowPopupWindow;
+import com.jimfengfly.arrowpopupwindow.widgets.popupwindow.ArrowTiedPopupWindow;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mLeftButton, ArrowTiedPopupWindow.TiedDirection.LEFT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mRightButton, ArrowTiedPopupWindow.TiedDirection.RIGHT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mTopButton, ArrowTiedPopupWindow.TiedDirection.TOP);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.5f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mBottomButton, ArrowTiedPopupWindow.TiedDirection.BOTTOM);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mPositionButton, ArrowTiedPopupWindow.TiedDirection.RIGHT);
                 mPopupWindow.setOffset(0, 0);
                 mPopupWindow.preShow();
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 if(mPopupWindow.isShowing()) {
                     mPopupWindow.dismiss();
                 }
-                mPopupWindow.setArrow(R.color.white, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
+                mPopupWindow.setArrow(R.color.yellow, 0.7f, ArrowPopupWindow.ArrowSize.SMALL);
                 mPopupWindow.setTiedView(mOffsetButton, ArrowTiedPopupWindow.TiedDirection.LEFT);
                 mPopupWindow.setOffset(-10, -10);
                 mPopupWindow.preShow();
@@ -128,10 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initPopupWindow() {
         mPopupWindow = new ArrowTiedFollowPopupWindow(MainActivity.this);
-        mPopupWindow.setBackground(R.color.white, 5, 20, 10);
+        mPopupWindow.setBackground(R.color.yellow, 5, 20, 10);
         mPopupWindow.setPopupView(mTextView);
         mPopupWindow.setEdge(80,0,10,0);
-        mPopupWindow.setEdgeLine(R.color.edge, 1);
         mPopupWindow.setAnimationStyle(R.style.cardPopupAnimation);
     }
 

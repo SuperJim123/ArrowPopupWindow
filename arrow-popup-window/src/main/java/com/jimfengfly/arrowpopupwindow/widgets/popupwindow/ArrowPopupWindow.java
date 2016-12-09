@@ -1,24 +1,22 @@
-package cn.wecoder.arrowpopupwindow.library.widgets.popupwindow;
+package com.jimfengfly.arrowpopupwindow.widgets.popupwindow;
 
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+
+import com.jimfengfly.arrowpopupwindow.utils.Util;
+import com.jimfengfly.arrowpopupwindow.widgets.drawable.RoundRectDrawable;
+import com.jimfengfly.arrowpopupwindow.widgets.drawable.TintedBitmapDrawable;
 
 import cn.wecoder.arrowpopupwindow.library.R;
-import cn.wecoder.arrowpopupwindow.library.utils.Util;
-import cn.wecoder.arrowpopupwindow.library.widgets.drawable.RoundRectDrawable;
-import cn.wecoder.arrowpopupwindow.library.widgets.drawable.TintedBitmapDrawable;
 
 /**
  * Create a arrowed popup window.
@@ -49,7 +47,6 @@ public class ArrowPopupWindow extends PopupWindow {
     private float mArrowPosition;
     private int xPadding;
     private int yPadding;
-    private int mEdgeLineColor;
     private int mEdgeLineWidth;
     private ArrowSize mArrowSize = ArrowSize.NORMAL;
     private RelativeLayout container;
@@ -115,16 +112,6 @@ public class ArrowPopupWindow extends PopupWindow {
      */
     public void setPopupView(View view) {
         mContentView = view;
-    }
-
-    /**
-     * set the edge line
-     * @param colorRes the resource of this line's color
-     * @param width the width of this line's color
-     */
-    public void setEdgeLine(int colorRes, int width) {
-        mEdgeLineColor = mContext.getResources().getColor(colorRes);
-        mEdgeLineWidth = Util.DpToPx(mContext, width);
     }
 
     /**
@@ -251,17 +238,6 @@ public class ArrowPopupWindow extends PopupWindow {
 
         mViewWidth = container.getMeasuredWidth();
         mViewHeight = container.getMeasuredHeight();
-
-        if(mEdgeLineColor != 0) {
-            Bitmap viewBitmap = Util.convertViewToBitmap(container);
-            Bitmap edgeLineBitmap = Util.getEdgeLineBitmap(mContext, viewBitmap, mEdgeLineColor, mEdgeLineWidth);
-            BitmapDrawable edgeLineDrawable = new BitmapDrawable(edgeLineBitmap);
-            container.setPadding(mEdgeLineWidth, mEdgeLineWidth, mEdgeLineWidth, mEdgeLineWidth);
-            container.setBackgroundDrawable(edgeLineDrawable);
-
-            mViewWidth = container.getMeasuredWidth() + 2 * mEdgeLineWidth;
-            mViewHeight = container.getMeasuredHeight() + 2 * mEdgeLineWidth;
-        }
     }
 
     @Override

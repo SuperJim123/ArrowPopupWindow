@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrowPopupWindow.iml" filepath="$PROJECT_DIR$/ArrowPopupWindow.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arrow-popup-window/arrow-popup-window.iml" filepath="$PROJECT_DIR$/arrow-popup-window/arrow-popup-window.iml" />
     </modules>
   </component>
 </project>

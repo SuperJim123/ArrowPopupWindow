@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.wecoder.arrowpopupwindow.library.widgets.drawable;
+package com.jimfengfly.arrowpopupwindow.widgets.drawable;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
