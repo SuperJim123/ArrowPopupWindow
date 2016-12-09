@@ -2,7 +2,6 @@
 It's easy to create a arrowed popup window and tie it to another view. Once the tied view moves, this arrowed popup window will move too.
 
 # How to use
-
 ## 1. Download
 ```
 compile 'com.jimfengfly:arrow-popup-window:1.0.1'
