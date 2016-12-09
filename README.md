@@ -21,5 +21,4 @@ popupWindow.show();
 
 
 # Snapshot
-
  ![image](https://github.com/SuperJim123/arrowpopupwindow/raw/master/snapshot.jpg)
