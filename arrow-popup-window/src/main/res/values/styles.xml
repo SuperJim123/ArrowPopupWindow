@@ -1,13 +1,3 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
-
-    <style name="cardPopupAnimation" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@anim/cardshow_anim</item>
-        <item name="android:windowExitAnimation">@anim/carddismiss_anim</item>
-    </style>
-
 </resources>

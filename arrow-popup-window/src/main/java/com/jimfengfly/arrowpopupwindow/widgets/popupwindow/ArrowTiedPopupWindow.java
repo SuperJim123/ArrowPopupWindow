@@ -7,8 +7,6 @@ import android.view.WindowManager;
 
 import com.jimfengfly.arrowpopupwindow.utils.Util;
 
-import cn.wecoder.arrowpopupwindow.library.R;
-
 
 /**
  *  Create a arrowed popup window, it can be tied to a view.
@@ -102,7 +100,6 @@ public class ArrowTiedPopupWindow extends ArrowPopupWindow{
         tiedViewHeight = mTiedView.getMeasuredHeight();
         getPosition();
         if (checkShowable() && mTiedView.isShown()) {
-            setAnimationStyle(R.style.cardPopupAnimation);
             showAtLocation(mTiedView, Gravity.NO_GRAVITY, posX, posY);
             isShownSuccess = true;
         } else {
