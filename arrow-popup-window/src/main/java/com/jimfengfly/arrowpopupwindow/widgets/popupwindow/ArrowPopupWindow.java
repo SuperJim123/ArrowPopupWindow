@@ -46,7 +46,6 @@ public class ArrowPopupWindow extends PopupWindow {
     private float mArrowPosition;
     private int xPadding;
     private int yPadding;
-    private int mEdgeLineWidth;
     private ArrowSize mArrowSize = ArrowSize.NORMAL;
     private RelativeLayout container;
     private RelativeLayout mViewContainer;
